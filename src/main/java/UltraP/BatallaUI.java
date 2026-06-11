@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ELITEBOOK
+ * @author PEPEPECAS
  */
 public class BatallaUI extends javax.swing.JFrame {
 
