@@ -56,7 +56,7 @@ public enum TipoPokemon {
 
    
     
-
+    // Pepepecaspicapapasconunpico
     public static TipoPokemon aleatorio() {
         TipoPokemon[] tipos = values();
         return tipos[(int) (Math.random() * tipos.length)];
