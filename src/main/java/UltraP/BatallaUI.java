@@ -73,11 +73,11 @@ public class BatallaUI extends javax.swing.JFrame {
 
     private void lucharActionPerformed() {
         if (terminada) {
-            CuadroDeMensajes.setText("|| La batalla ha terminado. Cierra la ventana. ||");
+            CuadroDeMensajes.setText("La batalla ha terminado. Cierra la ventana");
             return;
         }
         if (!pokemonAliado.estaVivo()) {
-            CuadroDeMensajes.setText("|| " + pokemonAliado.getNombre() + " no puede luchar. Cambia de Pokemon. ||");
+            CuadroDeMensajes.setText("" + pokemonAliado.getNombre() + " no puede luchar. Cambia de Pokemon.");
             return;
         }
         double danioBase = (pokemonAliado.getAtaque() * 2.0 / pokemonRival.getDefensa()) * 20;
@@ -86,7 +86,7 @@ public class BatallaUI extends javax.swing.JFrame {
         pokemonRival.setHp(Math.max(0, pokemonRival.getHp() - danioJugador));
         String mensaje = (pokemonAliado.getNombre() + " ataca! -> " + danioJugador + " de dano.");
         if (!pokemonRival.estaVivo()) {
-            CuadroDeMensajes.setText("|| " + pokemonRival.getNombre() + " se debilito! Tu ganas. ||");
+            CuadroDeMensajes.setText("" + pokemonRival.getNombre() + " se debilito! Tu ganas.");
             terminada = true;
             actualizarUI();
             return;
@@ -99,12 +99,12 @@ public class BatallaUI extends javax.swing.JFrame {
         if (!pokemonAliado.estaVivo()) {
             mensaje += " || " + pokemonAliado.getNombre() + " se debilito!";
             if (todosDebilitados()) {
-                CuadroDeMensajes.setText("|| Todos tus Pokemon estan debilitados! Tu pierdes. ||");
+                CuadroDeMensajes.setText("Todos tus Pokemon estan debilitados! Tu pierdes");
                 terminada = true;
                 actualizarUI();
                 return;
             }
-            mensaje += " Cambia de Pokemon. ||";
+            mensaje += "Cambia de Pokemon.";
         }
         CuadroDeMensajes.setText(mensaje);
         actualizarUI();
@@ -112,7 +112,7 @@ public class BatallaUI extends javax.swing.JFrame {
 
     private void cambiarPokemonActionPerformed() {
         if (terminada) {
-            CuadroDeMensajes.setText("|| La batalla ha terminado. ||");
+            CuadroDeMensajes.setText("La batalla ha terminado");
             return;
         }
         int intentos = 0;
@@ -125,21 +125,21 @@ public class BatallaUI extends javax.swing.JFrame {
             }
         } while (!pokemonAliado.estaVivo());
         if (!pokemonAliado.estaVivo()) {
-            CuadroDeMensajes.setText("|| Todos tus Pokemon estan debilitados! Tu pierdes. ||");
+            CuadroDeMensajes.setText("Todos tus Pokemon estan debilitados! Tu pierdes.");
             terminada = true;
             return;
         }
-        CuadroDeMensajes.setText("|| Cambiaste a " + pokemonAliado.getNombre() + "! ||");
+        CuadroDeMensajes.setText("Cambiaste a " + pokemonAliado.getNombre() + "!");
         actualizarUI();
     }
 
     private void usarItemActionPerformed() {
         if (terminada) {
-            CuadroDeMensajes.setText("|| La batalla ha terminado. ||");
+            CuadroDeMensajes.setText("La batalla ha terminado.");
             return;
         }
         if (!pokemonAliado.estaVivo()) {
-            CuadroDeMensajes.setText("|| " + pokemonAliado.getNombre() + " esta debilitado. Cambialo primero. ||");
+            CuadroDeMensajes.setText("|| " + pokemonAliado.getNombre() + " esta debilitado. Cambialo primero.");
             return;
         }
         if (pokemonAliado.getHp() >= pokemonAliado.getHpMax()) {
@@ -224,8 +224,8 @@ public class BatallaUI extends javax.swing.JFrame {
         BarraVidaPokemonRival.setString(pokemonRival.getHp() + "/" + pokemonRival.getHpMax());
         setImagenPokemon(jLabel1, pokemonRival.getNombre(), true);
         if (CuadroDeMensajes.getText().isEmpty()) {
-            CuadroDeMensajes.setText("|| Comienza la batalla! "
-                    + pokemonAliado.getNombre() + " vs " + pokemonRival.getNombre() + " ||");
+            CuadroDeMensajes.setText("Comienza la batalla! "
+                    + pokemonAliado.getNombre() + " vs " + pokemonRival.getNombre());
         }
     }
 
